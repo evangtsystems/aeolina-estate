@@ -90,7 +90,7 @@ export default function VillasPage() {
           />
           <VillaCard
             name="Villa NATALIA"
-            image="/images/natalia/cover.jpg"
+            image="/images/natalia/coveri.jpg"
             description="A sunlit and cozy 2-bedroom villa perfect for couples or small families seeking peaceful relaxation."
             link="/villas/natalia"
           />
