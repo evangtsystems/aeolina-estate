@@ -22,7 +22,7 @@ export default function NataliaPage() {
         </section>
 
         <section style={{ padding: '20px', textAlign: 'center' }}>
-          <img src="/images/natalia/Cover.jpg" alt="Villa NATALIA" style={{ maxWidth: '100%', borderRadius: '10px' }} />
+          <img src="/images/natalia/cover.jpg" alt="Villa NATALIA" style={{ maxWidth: '100%', borderRadius: '10px' }} />
         </section>
 
         <section style={{ padding: '20px 30px' }}>
