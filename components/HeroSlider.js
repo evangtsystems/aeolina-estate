@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 
 const sliderImages = [
-  '/images/slider/1.jpg',
-  '/images/slider/2.jpg',
-  '/images/slider/3.jpg',
-  '/images/slider/4.jpg',
-  '/images/slider/5.jpg',
-  '/images/slider/6.jpg',
-  '/images/slider/7.jpg',
-  '/images/slider/8.jpg',
+  '/images/slider/1.webp',
+  '/images/slider/2.webp',
+  '/images/slider/3.webp',
+  '/images/slider/4.webp',
+  '/images/slider/5.webp',
+  '/images/slider/6.webp',
+  '/images/slider/7.webp',
+  '/images/slider/8.webp',
 ];
 
 export default function HeroSlider() {

@@ -75,7 +75,8 @@ export default function Header() {
             {menuItems.map((label) => (
               <a
                 key={label}
-                href={`/${label === 'Home' ? '' : label.toLowerCase()}`}
+                href={label === 'Home' ? '/' : label === 'Gallery' ? '/gallery' : `/${label.toLowerCase()}`}
+
                 style={{
                   textDecoration: 'none',
                   color: '#fff',
@@ -134,7 +135,8 @@ export default function Header() {
           {menuItems.map((label) => (
             <a
               key={label}
-              href={`/${label === 'Home' ? '' : label.toLowerCase()}`}
+              href={label === 'Home' ? '/' : label === 'Gallery' ? '/gallery' : `/${label.toLowerCase()}`}
+
               style={{
                 textDecoration: 'none',
                 color: '#fff',

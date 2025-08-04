@@ -51,7 +51,7 @@ export default function GalleryPage({ folder, images }) {
 
   const columnCount = Math.max(1, Math.floor(containerWidth / 250));
   const columnWidth = Math.floor(containerWidth / columnCount);
-  const rowHeight = columnWidth; // square
+  const rowHeight = columnWidth;
   const rowCount = Math.ceil(images.length / columnCount);
 
   const Cell = ({ columnIndex, rowIndex, style }) => {
@@ -102,29 +102,43 @@ export default function GalleryPage({ folder, images }) {
       <div ref={containerRef} style={{ width: '100%', height: '100vh' }}>
         {!allLoaded ? (
           <div
-            style={{
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <div style={{
-              width: '60px',
-              height: '60px',
-              border: '6px solid #ccc',
-              borderTop: '6px solid #2c3e50',
-              borderRadius: '50%',
-              animation: 'spin 1s linear infinite',
-            }} />
-            <style>{`
-              @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-              }
-            `}</style>
-          </div>
+  style={{
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '#f4f4f4',
+    fontFamily: 'Arial, sans-serif',
+  }}
+>
+  <div
+    style={{
+      width: '50px',
+      height: '50px',
+      border: '6px solid #ddd',
+      borderTop: '6px solid #0077b6',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite',
+    }}
+  />
+  <p style={{ marginTop: '1.2rem', fontSize: '1.1rem', color: '#555' }}>
+    Loading gallery...
+  </p>
+
+  <style jsx>{`
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  `}</style>
+</div>
+
         ) : (
           <Grid
             columnCount={columnCount}

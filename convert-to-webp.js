@@ -1,38 +1,21 @@
+// convert-to-webp.js
+const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
-const sharp = require('sharp');
 
-const inputDir = 'C:/Users/evangelos.lampos/villa-aeolina/public/images/common';
+const inputDir = path.join(__dirname, 'public', 'images', 'slider');
 
-fs.readdir(inputDir, (err, files) => {
-  if (err) {
-    console.error('❌ Failed to read directory:', err);
-    return;
+fs.readdirSync(inputDir).forEach((file) => {
+  const ext = path.extname(file).toLowerCase();
+  const name = path.basename(file, ext);
+  const inputPath = path.join(inputDir, file);
+  const outputPath = path.join(inputDir, `${name}.webp`);
+
+  if (['.jpg', '.jpeg', '.png'].includes(ext)) {
+    sharp(inputPath)
+      .webp({ quality: 85 })
+      .toFile(outputPath)
+      .then(() => console.log(`✅ Converted: ${file} → ${name}.webp`))
+      .catch((err) => console.error(`❌ Failed to convert ${file}:`, err));
   }
-
-  if (files.length === 0) {
-    console.log('⚠️ No files found in the folder.');
-    return;
-  }
-
-  console.log(`🔍 Found ${files.length} files. Checking for .jpg/.jpeg...`);
-
-  files.forEach((file) => {
-    const ext = path.extname(file).toLowerCase(); // normalize casing
-    const name = path.basename(file, ext);
-
-    if (ext === '.jpg' || ext === '.jpeg') {
-      const inputPath = path.join(inputDir, file);
-      const outputPath = path.join(inputDir, `${name}.webp`);
-
-      sharp(inputPath)
-        .toFormat('webp')
-        .toFile(outputPath)
-        .then(() => console.log(`✅ Converted: ${file} → ${name}.webp`))
-        .catch(err => console.error(`❌ Error converting ${file}:`, err));
-    } else {
-      console.log(`⏩ Skipped (not JPG): ${file}`);
-    }
-  });
 });
-
