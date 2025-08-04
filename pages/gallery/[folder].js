@@ -21,44 +21,37 @@ export async function getStaticProps({ params }) {
 
 export default function GalleryPage({ folder, images }) {
   const containerRef = useRef(null);
-  const [containerWidth, setContainerWidth] = useState(1000);
-  const [containerHeight, setContainerHeight] = useState(800);
-  const [allLoaded, setAllLoaded] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(1920); // full HD desktop default
+  const [containerHeight, setContainerHeight] = useState(1080);
 
   useEffect(() => {
-    let loadedCount = 0;
-    images.forEach((src) => {
+    // Preload first few images to reduce delay
+    images.slice(0, 8).forEach((src) => {
       const img = new Image();
       img.src = src;
-      img.onload = img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === images.length) setAllLoaded(true);
-      };
     });
   }, [images]);
 
   useEffect(() => {
-    const measure = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth);
-        setContainerHeight(containerRef.current.offsetHeight);
-      }
+    const updateSize = () => {
+      setContainerWidth(window.innerWidth);
+      setContainerHeight(window.innerHeight);
     };
-    measure();
-    window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  const columnCount = Math.max(1, Math.floor(containerWidth / 250));
+  const columnCount = Math.max(1, Math.floor(containerWidth / 280));
   const columnWidth = Math.floor(containerWidth / columnCount);
-  const rowHeight = columnWidth;
+  const rowHeight = columnWidth; // square
   const rowCount = Math.ceil(images.length / columnCount);
 
   const Cell = ({ columnIndex, rowIndex, style }) => {
     const index = rowIndex * columnCount + columnIndex;
     if (index >= images.length) return null;
-    const fullSrc = images[index];
 
+    const fullSrc = images[index];
     return (
       <div style={{ ...style, padding: '0.5rem' }}>
         <a href={fullSrc} target="_blank" rel="noopener noreferrer">
@@ -99,60 +92,25 @@ export default function GalleryPage({ folder, images }) {
         ⬅ Επιστροφή στη Λίστα
       </a>
 
-      <div ref={containerRef} style={{ width: '100%', height: '100vh' }}>
-        {!allLoaded ? (
-          <div
-  style={{
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: '#f4f4f4',
-    fontFamily: 'Arial, sans-serif',
-  }}
->
-  <div
-    style={{
-      width: '50px',
-      height: '50px',
-      border: '6px solid #ddd',
-      borderTop: '6px solid #0077b6',
-      borderRadius: '50%',
-      animation: 'spin 1s linear infinite',
-    }}
-  />
-  <p style={{ marginTop: '1.2rem', fontSize: '1.1rem', color: '#555' }}>
-    Loading gallery...
-  </p>
-
-  <style jsx>{`
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  `}</style>
-</div>
-
-        ) : (
-          <Grid
-            columnCount={columnCount}
-            columnWidth={columnWidth}
-            height={containerHeight}
-            rowCount={rowCount}
-            rowHeight={rowHeight}
-            width={containerWidth}
-            overscanRowCount={10}
-            style={{ overflowX: 'hidden', marginRight: '-4px' }}
-          >
-            {Cell}
-          </Grid>
-        )}
+      <div
+        ref={containerRef}
+        style={{
+          width: '100%',
+          height: '100vh',
+        }}
+      >
+        <Grid
+          columnCount={columnCount}
+          columnWidth={columnWidth}
+          height={containerHeight}
+          rowCount={rowCount}
+          rowHeight={rowHeight}
+          width={containerWidth}
+          overscanRowCount={4}
+          style={{ overflowX: 'hidden', marginRight: '-4px' }}
+        >
+          {Cell}
+        </Grid>
       </div>
     </main>
   );
