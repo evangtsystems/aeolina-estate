@@ -22,6 +22,7 @@ export default function GalleryPage({ folder, images }) {
   const containerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(1000);
   const [containerHeight, setContainerHeight] = useState(800);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   useEffect(() => {
     const measure = () => {
@@ -34,6 +35,17 @@ export default function GalleryPage({ folder, images }) {
     window.addEventListener('resize', measure);
     return () => window.removeEventListener('resize', measure);
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (lightboxIndex === null) return;
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowRight') setLightboxIndex((prev) => (prev + 1) % images.length);
+      if (e.key === 'ArrowLeft') setLightboxIndex((prev) => (prev - 1 + images.length) % images.length);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex, images.length]);
 
   const columnCount = Math.max(1, Math.floor(containerWidth / 250));
   const columnWidth = Math.floor(containerWidth / columnCount);
@@ -49,22 +61,32 @@ export default function GalleryPage({ folder, images }) {
 
     return (
       <div style={{ ...style, padding: '0.5rem' }}>
-        <a href={fullSrc} target="_blank" rel="noopener noreferrer">
-          <img
-            src={thumbSrc}
-            loading="lazy"
-            alt={`Photo ${index + 1}`}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              borderRadius: '8px',
-              display: 'block',
-            }}
-          />
-        </a>
+        <img
+          src={thumbSrc}
+          loading="lazy"
+          alt={`Photo ${index + 1}`}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: '8px',
+            display: 'block',
+            cursor: 'pointer',
+          }}
+          onClick={() => setLightboxIndex(index)}
+        />
       </div>
     );
+  };
+
+  const goPrev = (e) => {
+    e.stopPropagation();
+    setLightboxIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const goNext = (e) => {
+    e.stopPropagation();
+    setLightboxIndex((prev) => (prev + 1) % images.length);
   };
 
   return (
@@ -102,7 +124,91 @@ export default function GalleryPage({ folder, images }) {
           {Cell}
         </Grid>
       </div>
+
+      {lightboxIndex !== null && (
+        <div
+          onClick={() => setLightboxIndex(null)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            background: 'rgba(0,0,0,0.85)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 2000,
+            cursor: 'zoom-out',
+          }}
+        >
+          <img
+            src={images[lightboxIndex]}
+            alt=""
+            style={{
+              maxWidth: '90%',
+              maxHeight: '90%',
+              objectFit: 'contain',
+              borderRadius: '12px',
+              boxShadow: '0 0 20px rgba(0,0,0,0.5)',
+            }}
+          />
+
+          {/* Close Button */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '1rem',
+              right: '1rem',
+              color: '#fff',
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              zIndex: 2001,
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(null);
+            }}
+          >
+            ✕
+          </div>
+
+          {/* Prev Arrow */}
+          <div
+            onClick={goPrev}
+            style={{
+              position: 'absolute',
+              left: '2rem',
+              fontSize: '3rem',
+              color: '#fff',
+              cursor: 'pointer',
+              userSelect: 'none',
+              zIndex: 2001,
+            }}
+          >
+            ‹
+          </div>
+
+          {/* Next Arrow */}
+          <div
+            onClick={goNext}
+            style={{
+              position: 'absolute',
+              right: '2rem',
+              fontSize: '3rem',
+              color: '#fff',
+              cursor: 'pointer',
+              userSelect: 'none',
+              zIndex: 2001,
+            }}
+          >
+            ›
+          </div>
+        </div>
+      )}
     </main>
   );
 }
+
 
