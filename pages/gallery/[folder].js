@@ -1,4 +1,3 @@
-// pages/gallery/[folder].js
 import fs from 'fs';
 import path from 'path';
 import { FixedSizeGrid as Grid } from 'react-window';
@@ -23,19 +22,6 @@ export default function GalleryPage({ folder, images }) {
   const containerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(1000);
   const [containerHeight, setContainerHeight] = useState(800);
-  const [allLoaded, setAllLoaded] = useState(false);
-
-  useEffect(() => {
-    let loadedCount = 0;
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = img.onerror = () => {
-        loadedCount++;
-        if (loadedCount === images.length) setAllLoaded(true);
-      };
-    });
-  }, [images]);
 
   useEffect(() => {
     const measure = () => {
@@ -57,13 +43,16 @@ export default function GalleryPage({ folder, images }) {
   const Cell = ({ columnIndex, rowIndex, style }) => {
     const index = rowIndex * columnCount + columnIndex;
     if (index >= images.length) return null;
+
     const fullSrc = images[index];
+    const thumbSrc = fullSrc.replace('/images/', '/thumbs/');
 
     return (
       <div style={{ ...style, padding: '0.5rem' }}>
         <a href={fullSrc} target="_blank" rel="noopener noreferrer">
           <img
-            src={fullSrc}
+            src={thumbSrc}
+            loading="lazy"
             alt={`Photo ${index + 1}`}
             style={{
               width: '100%',
@@ -100,52 +89,20 @@ export default function GalleryPage({ folder, images }) {
       </a>
 
       <div ref={containerRef} style={{ width: '100%', height: '100vh' }}>
-        {!allLoaded ? (
-          <div
-            style={{
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <div className="spinner" />
-            <style jsx>{`
-              .spinner {
-                width: 60px;
-                height: 60px;
-                border: 6px solid #ccc;
-                border-top: 6px solid #2c3e50;
-                border-radius: 50%;
-                animation: spin 1s linear infinite;
-              }
-
-              @keyframes spin {
-                0% {
-                  transform: rotate(0deg);
-                }
-                100% {
-                  transform: rotate(360deg);
-                }
-              }
-            `}</style>
-          </div>
-        ) : (
-          <Grid
-            columnCount={columnCount}
-            columnWidth={columnWidth}
-            height={containerHeight}
-            rowCount={rowCount}
-            rowHeight={rowHeight}
-            width={containerWidth}
-            overscanRowCount={10}
-            style={{ overflowX: 'hidden', marginRight: '-4px' }}
-          >
-            {Cell}
-          </Grid>
-        )}
+        <Grid
+          columnCount={columnCount}
+          columnWidth={columnWidth}
+          height={containerHeight}
+          rowCount={rowCount}
+          rowHeight={rowHeight}
+          width={containerWidth}
+          overscanRowCount={10}
+          style={{ overflowX: 'hidden', marginRight: '-4px' }}
+        >
+          {Cell}
+        </Grid>
       </div>
     </main>
   );
 }
+
