@@ -21,7 +21,7 @@ export default function Footer() {
       }}>
         {/* Left Column */}
         <div style={{ flex: '1 1 300px' }}>
-          <p style={{ marginBottom: '8px' }}>IONIANEMS &copy; {currentYear}</p>
+          <p style={{ marginBottom: '8px' }}>AEOLINAVILLAS &copy; {currentYear}</p>
           <p style={{ marginBottom: '8px' }}>
             Contact us: <a href="mailto:info@aeolinavillas.com" style={{ color: 'white' }}>info@aeolinavillas.com</a>
           </p>
