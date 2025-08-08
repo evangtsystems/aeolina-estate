@@ -9,6 +9,8 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { FaUmbrellaBeach, FaUtensils, FaCarSide, FaMapMarkerAlt } from 'react-icons/fa';
 import { AnimatePresence } from 'framer-motion';
+import CookieConsent from '../components/CookieConsent';
+
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -477,6 +479,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <CookieConsent />
       <Footer />
     </>
   );

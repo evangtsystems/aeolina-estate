@@ -23,7 +23,7 @@ export default function Footer() {
         <div style={{ flex: '1 1 300px' }}>
           <p style={{ marginBottom: '8px' }}>IONIANEMS &copy; {currentYear}</p>
           <p style={{ marginBottom: '8px' }}>
-            Contact us: <a href="mailto:info@ionianems.com" style={{ color: 'white' }}>info@ionianems.com</a>
+            Contact us: <a href="mailto:info@aeolinavillas.com" style={{ color: 'white' }}>info@ionianems.com</a>
           </p>
           <p style={{ marginBottom: '8px' }}>
             Follow us:
