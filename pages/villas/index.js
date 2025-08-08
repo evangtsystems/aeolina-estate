@@ -77,10 +77,10 @@ export default function VillasPage() {
           }}
         >
           <VillaCard
-            name="Villa ELEA"
-            image="/images/elea/cover.jpg"
+            name="Villa NATALIA"
+            image="/images/natalia/coveri.jpg"
             description="Our spacious 4-bedroom villa with a private pool, ideal for families or larger groups (up to 8 guests)."
-            link="/villas/elea"
+            link="/villas/natalia"
           />
           <VillaCard
             name="Villa OLIVA"
@@ -89,10 +89,10 @@ export default function VillasPage() {
             link="/villas/oliva"
           />
           <VillaCard
-            name="Villa NATALIA"
-            image="/images/natalia/coveri.jpg"
+            name="Villa ELEA"
+            image="/images/elea/cover.jpg"
             description="A sunlit and cozy 2-bedroom villa perfect for couples or small families seeking peaceful relaxation."
-            link="/villas/natalia"
+            link="/villas/elea"
           />
         </motion.section>
       </main>

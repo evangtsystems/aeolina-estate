@@ -225,9 +225,9 @@ export default function Home() {
               marginTop: '30px',
             }}
           >
-            <VillaCard name="Villa ELEA" image="/images/elea/cover.jpg" description="Our deluxe villa for up to 8 guests, perfect for families or small groups." link="/villas/elea" />
+            <VillaCard name="Villa ELEA" image="/images/elea/cover.jpg" description="Charming, sunlit, and peaceful — ideal for couples or small families." link="/villas/elea" />
             <VillaCard name="Villa OLIVA" image="/images/oliva/cover.jpg" description="A cozy and stylish retreat for up to 4 guests." link="/villas/oliva" />
-            <VillaCard name="Villa NATALIA" image="/images/natalia/coveri.jpg" description="Charming, sunlit, and peaceful — ideal for couples or small families." link="/villas/natalia" />
+            <VillaCard name="Villa NATALIA" image="/images/natalia/coveri.jpg" description="Our deluxe villa for up to 8 guests, perfect for families or small groups." link="/villas/natalia" />
           </div>
         </section>
 
