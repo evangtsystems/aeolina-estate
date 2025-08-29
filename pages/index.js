@@ -138,6 +138,335 @@ export default function Home() {
       >
         <HeroSlider />
 
+{/* Interior Design & Sustainability */}
+<section
+  style={{
+    padding: '70px 20px',
+    backgroundColor: '#f5fff5',
+    borderTop: '3px solid #cfe6cf',
+    borderBottom: '3px solid #cfe6cf',
+    fontFamily: `'Georgia', serif`,
+  }}
+>
+  <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <h2
+      style={{
+        fontSize: '2.2rem',
+        marginBottom: '28px',
+        textAlign: 'center',
+        color: '#263d2d',
+        letterSpacing: '0.5px',
+      }}
+    >
+      Interior Design &amp; Sustainability
+    </h2>
+
+    {/* Intro / statement */}
+    <div
+      style={{
+        backgroundColor: '#ffffff',
+        borderRadius: '14px',
+        padding: '24px',
+        boxShadow: '0 8px 20px rgba(0,0,0,0.06)',
+        lineHeight: 1.9,
+        fontSize: '1.1rem',
+        color: '#333',
+        textAlign: 'justify',
+        marginBottom: '24px',
+      }}
+    >
+     <p style={{ margin: 0 }}>
+  At AEOLINA, sustainability is not just a design choice—it is our responsibility as villa owners. 
+  By choosing <strong>solid wood furnishings</strong> crafted by local artisans, we reduce waste and ensure durability, 
+  while natural textures bring harmony with the olive-grove setting. Thoughtful <strong>lighting design</strong> enhances 
+  both comfort and energy efficiency, curated in collaboration with <strong>international artist Spiros Gelekas</strong>, 
+  whose vision blends beauty with mindful living. In every detail, we seek to balance elegance with respect for nature, 
+  so that each stay leaves a lighter footprint.
+</p>
+
+    </div>
+
+    {/* Feature grid */}
+    <div id="design-sustainability-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px' }}>
+      {/* Full-width background image with responsive overlayed text (moves below on mobile) */}
+      <div
+        className="fullBleedHero"
+        style={{
+          position: 'relative',
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          marginRight: 'calc(-50vw + 50%)',
+          marginBottom: '40px',
+          overflow: 'hidden',
+        }}
+      >
+        <img
+  className="heroImg"
+  src="/images/common/Villa_3_7.webp"
+  alt="Villa AEOLINA Interior"
+  style={{
+    width: '100%',
+    display: 'block',
+  }}
+/>
+
+
+        <div
+          className="overlay"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35))',
+          }}
+        />
+
+        <div className="heroText">
+          <h3
+            style={{
+              fontSize: '1.8rem',
+              marginBottom: '18px',
+              color: '#bb8b22ff',
+            }}
+          >
+            Thoughtful Design Details
+          </h3>
+
+          <ul
+            style={{
+              margin: 0,
+              padding: 0,
+              listStyle: 'none',
+              textAlign: 'center',
+              fontSize: '1.1rem',
+              lineHeight: 1.8,
+            }}
+          >
+            <li style={{ marginBottom: '6px', color: 'inherit' }}>✅ Solid-wood dining and coffee tables with timeless lines.</li>
+            <li style={{ marginBottom: '6px', color: 'inherit' }}>💡 Layered lighting: ambient, task, and accent scenes for every moment.</li>
+            <li style={{ marginBottom: '6px', color: 'inherit' }}>🌿 Natural textures—linen, cotton, and woven elements for tactile comfort.</li>
+            <li style={{ color: 'inherit' }}>🎨 Calming palette inspired by olive leaves, stone, and sunlit clay.</li>
+          </ul>
+        </div>
+      </div>
+
+     {/* Sustainability */}
+<div
+  style={{
+    backgroundColor: '#e9f7ef',
+    borderRadius: '14px',
+    padding: '28px',
+    boxShadow: '0 6px 18px rgba(0,0,0,0.05)',
+  }}
+>
+    {/* Wrapper: only className, no inline flex styles */}
+  <div className="s-row">
+
+    {/* Left: Image */}
+    <div className="s-image" style={{ flexShrink: 0 }}>
+      <img
+        src="/images/common/sustainability.png"
+        alt="Sustainability"
+        style={{
+          width: '200px',
+          height: 'auto',
+          borderRadius: '12px',
+          boxShadow: '0 4px 14px rgba(0,0,0,0.08)',
+        }}
+      />
+    </div>
+
+    {/* Right: Text */}
+        {/* Right: Text */}
+    <div className="s-text" style={{ flex: 1 }}>
+
+      <h3
+        style={{
+          fontSize: '1.8rem',
+          fontWeight: '700',
+          marginBottom: '20px',
+          color: '#21402f',
+          letterSpacing: '0.5px',
+          textTransform: 'uppercase',
+          borderBottom: '2px solid #cfe6cf',
+          paddingBottom: '6px',
+        }}
+      >
+        🌿 Sustainability in Practice
+      </h3>
+
+      <ul
+        style={{
+          margin: 0,
+          padding: 0,
+          lineHeight: 1.9,
+          color: '#2b3e35',
+          listStyle: 'none',
+        }}
+      >
+        <li style={{ display: 'flex', alignItems: 'center', marginBottom: '6px' }}>
+          <span style={{ width: '30px', textAlign: 'center' }}>🌿</span>
+          <span>Energy-efficient LED lighting &amp; mindful scene control.</span>
+        </li>
+        <li style={{ display: 'flex', alignItems: 'center', marginBottom: '6px' }}>
+          <span style={{ width: '30px', textAlign: 'center' }}>💧</span>
+          <span>Water-saving fixtures and optional linen refresh program.</span>
+        </li>
+        <li style={{ display: 'flex', alignItems: 'center', marginBottom: '6px' }}>
+          <span style={{ width: '30px', textAlign: 'center' }}>🪵</span>
+          <span>Durable, solid-wood furniture to reduce replacements.</span>
+        </li>
+        <li style={{ display: 'flex', alignItems: 'center', marginBottom: '6px' }}>
+          <span style={{ width: '30px', textAlign: 'center' }}>♻️</span>
+          <span>Recycling guidance and eco-friendly cleaning products.</span>
+        </li>
+        <li style={{ display: 'flex', alignItems: 'center' }}>
+          <span style={{ width: '30px', textAlign: 'center' }}>🏡</span>
+          <span>Locally sourced materials supporting nearby artisans.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+    </div>
+
+    {/* Quick badges with image */}
+<div style={{ textAlign: 'center', marginTop: '22px' }}>
+  
+
+  <div
+    style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '10px',
+      justifyContent: 'center',
+    }}
+  >
+    {['Solid Wood', 'Low Energy', 'Natural Textiles', 'Local Craft', 'Water Smart'].map((b) => (
+      <span
+        key={b}
+        style={{
+          backgroundColor: '#ffffff',
+          border: '1px solid #cfe6cf',
+          color: '#21402f',
+          padding: '8px 12px',
+          borderRadius: '999px',
+          fontSize: '0.95rem',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+        }}
+      >
+        {b}
+      </span>
+    ))}
+  </div>
+</div>
+
+
+    {/* Highlight banner */}
+    <div
+      style={{
+        background: 'linear-gradient(90deg, #cfe6cf, #e9f7ef)',
+        borderRadius: '16px',
+        padding: '18px 22px',
+        textAlign: 'center',
+        boxShadow: '0 8px 20px rgba(0,0,0,0.07)',
+        marginTop: '26px',
+      }}
+    >
+      <p style={{ margin: 0, fontSize: '1.05rem', color: '#21402f' }}>
+        We believe good design is also good stewardship—comfort, beauty, and lighter footprints in perfect balance.
+      </p>
+    </div>
+
+    {/* Credit line */}
+    <div style={{ marginTop: '14px', textAlign: 'right' }}>
+      <em style={{ fontSize: '0.95rem', color: '#3b5a46' }}>Artistic contribution: Spiros Gelekas</em>
+    </div>
+  </div>
+
+  {/* SINGLE styled-jsx block (no nesting) */}
+ <style jsx>{`
+  /* Grid: two columns on desktop */
+  @media (min-width: 900px) {
+    #design-sustainability-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+  }
+
+  /* Desktop/tablet: overlay text inside hero image */
+  @media (min-width: 768px) {
+    .heroText {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ced8ceff;
+      padding: 20px;
+      width: 92%;
+      max-width: 900px;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
+    .heroImg {
+      height: 71vh;
+      object-fit: cover;
+    }
+  }
+
+  /* Mobile: text block below hero image */
+  @media (max-width: 767px) {
+    .overlay {
+      display: none;
+    }
+    .heroText {
+      position: static;
+      transform: none;
+      margin-top: 16px;
+      padding: 16px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      color: #333;
+      text-align: center;
+    }
+    .heroImg {
+      height: auto;
+      object-fit: contain;
+    }
+    :global(body) {
+      overflow-x: hidden;
+    }
+  }
+
+    /* Base (mobile): stacked layout */
+  .s-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+
+  /* Desktop: side-by-side layout for Sustainability block */
+  @media (min-width: 900px) {
+    .s-row {
+      flex-direction: row;
+      align-items: center;   /* vertical centering */
+    }
+    .s-image img {
+      width: 260px;          /* bigger image on desktop */
+    }
+    .s-text h3 {
+      text-align: left;      /* override mobile centering */
+    }
+  }
+`}</style>
+
+
+</section>
+
+
+
+
       <section
   style={{
     padding: '100px 20px',

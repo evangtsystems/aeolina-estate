@@ -21,7 +21,7 @@ export default function Header() {
         top: 0,
         width: '100%',
         height: '90px',
-        background: 'linear-gradient(90deg, #0077b6, #00b4d8)',
+        background: 'linear-gradient(90deg, #749e2fff, #a6b383ff)',
         padding: '0 20px',
         boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)',
         zIndex: 1000,
