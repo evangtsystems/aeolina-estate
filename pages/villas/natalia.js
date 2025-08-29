@@ -51,7 +51,7 @@ export default function NataliaPage() {
         {[
           {
             title: 'At a Glance',
-            img: '/images/NATALIA/glance.jpg',
+            img: '/images/natalia/glance.jpg',
             points: [
               '🏡 150 m² detached private villa',
               '🛏️ 4 bedrooms – ideal for larger groups',
@@ -68,7 +68,7 @@ export default function NataliaPage() {
           },
           {
             title: 'In Your Private Kitchen',
-            img: '/images/NATALIA/kitchen.jpg',
+            img: '/images/natalia/kitchen.jpg',
             points: [
               'Stovetop, Oven, Toaster',
               'Dishwasher, Microwave, Refrigerator',
@@ -80,7 +80,7 @@ export default function NataliaPage() {
           },
           {
             title: 'In Your Private Bathrooms',
-            img: '/images/NATALIA/bathroom.jpg',
+            img: '/images/natalia/bathroom.jpg',
             points: [
               'Walk-in showers & modern fixtures',
               'Free toiletries, Towels, Slippers',
