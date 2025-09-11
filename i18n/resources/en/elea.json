@@ -1,0 +1,17 @@
+{
+  "seo": {
+    "title": "Villa ELEA – Two-Bedroom Villa | AEOLINA Collection",
+    "description": "Villa ELEA is a tranquil 150 m² villa with two bedrooms, two bathrooms, private pool, and full kitchen — perfect for couples or families seeking nature and comfort in Corfu."
+  },
+  "hero": {
+    "title": "Villa ELEA",
+    "intro": "Villa ELEA is a 150 m² two-bedroom villa designed for comfort and peace. With a private pool, open terrace, and full kitchen, it’s the perfect choice for couples or families seeking a private escape in the Corfu countryside."
+  },
+  "images": {
+    "coverAlt": "Villa ELEA exterior",
+    "feature1Alt": "Villa ELEA interior",
+    "kitchenAlt": "Villa ELEA kitchen",
+    "bathroomAlt": "Villa ELEA bathroom",
+    "featuresAlt": "Villa ELEA comfort and features"
+  }
+}

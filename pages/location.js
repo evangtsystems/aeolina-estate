@@ -4,8 +4,10 @@ import Footer from '../components/Footer';
 import { FaUmbrellaBeach, FaUtensils, FaCarSide, FaMapMarkerAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Location() {
+  const { t } = useTranslation('location');
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
@@ -18,11 +20,8 @@ export default function Location() {
   return (
     <>
       <Head>
-        <title>Location – Villa AEOLINA</title>
-        <meta
-          name="description"
-          content="Discover where Villa AEOLINA is located in Corfu. Nestled in Episkopiana, close to beaches and local attractions."
-        />
+        <title>{t('seo.title')}</title>
+        <meta name="description" content={t('seo.description')} />
       </Head>
 
       <Header />
@@ -68,7 +67,7 @@ export default function Location() {
           >
             <Image
               src="/images/common/aeolina location image.png"
-              alt="AEOLINA Location"
+              alt={t('hero.alt')}
               width={1024}
               height={1024}
               style={{
@@ -97,11 +96,9 @@ export default function Location() {
             }}
           >
             <h1 style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: 'bold' }}>
-              Our Location
+              {t('hero.title')}
             </h1>
-            <p style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)' }}>
-              Picture yourself relaxing on a sunbed under olive trees while cicadas sing around you.
-            </p>
+            <p style={{ fontSize: 'clamp(1rem, 3vw, 1.3rem)' }}>{t('hero.text')}</p>
           </div>
 
           {/* Ambient sound */}
@@ -117,22 +114,16 @@ export default function Location() {
 
         {/* Intro Description */}
         <section style={{ padding: '40px 20px', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '1.8rem', marginBottom: '10px' }}>
-            A Natural Haven in Southeast Corfu
-          </h2>
+          <h2 style={{ fontSize: '1.8rem', marginBottom: '10px' }}>{t('intro.title')}</h2>
           <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1rem' }}>
-            Nestled in a private olive grove in Episkopiana, Villa AEOLINA offers a tranquil retreat
-            away from the busy resorts, while still being just minutes from golden-sand beaches like
-            Chalikounas and Issos. Explore the nearby seaside villages of Moraitika, Messonghi, and
-            Benitses for traditional tavernas, cafes, boat rentals, and lively coastal charm. Corfu
-            Town is only 30 minutes away by car.
+            {t('intro.text')}
           </p>
         </section>
 
         {/* Highlights Section */}
         <section style={{ padding: '40px 20px', backgroundColor: '#f9f9f9' }}>
           <h2 style={{ textAlign: 'center', fontSize: '1.5rem', marginBottom: '30px' }}>
-            What’s Nearby?
+            {t('nearby.title')}
           </h2>
           <div
             style={{
@@ -147,23 +138,23 @@ export default function Location() {
             {[
               {
                 icon: <FaUmbrellaBeach size={40} />,
-                title: 'Beaches',
-                text: 'Chalikounas and Issos beaches are only a short drive away – wide, sandy, and uncrowded.',
+                title: t('nearby.items.beaches.title'),
+                text: t('nearby.items.beaches.text'),
               },
               {
                 icon: <FaUtensils size={40} />,
-                title: 'Local Dining',
-                text: 'Enjoy fresh seafood and local cuisine at family-run tavernas in nearby Moraitika and Benitses.',
+                title: t('nearby.items.dining.title'),
+                text: t('nearby.items.dining.text'),
               },
               {
                 icon: <FaCarSide size={40} />,
-                title: 'Easy Access',
-                text: 'Located just 30 minutes from Corfu Town and the airport. Ideal for exploring the island.',
+                title: t('nearby.items.access.title'),
+                text: t('nearby.items.access.text'),
               },
               {
                 icon: <FaMapMarkerAlt size={40} />,
-                title: 'Nature & Trails',
-                text: 'Surrounded by olive groves, hills, and quiet paths for walking or cycling right from your door.',
+                title: t('nearby.items.nature.title'),
+                text: t('nearby.items.nature.text'),
               },
             ].map((item, idx) => (
               <div
@@ -188,7 +179,7 @@ export default function Location() {
 
         {/* Google Map Embed */}
         <section style={{ padding: '40px 0', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '20px' }}>Find Us on the Map</h2>
+          <h2 style={{ fontSize: '1.5rem', marginBottom: '20px' }}>{t('map.title')}</h2>
           <div
             style={{
               maxWidth: '1000px',

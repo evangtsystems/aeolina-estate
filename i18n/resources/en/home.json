@@ -1,0 +1,107 @@
+{
+  "seo": {
+    "title": "Villa AEOLINA – Tranquil Villas in Corfu",
+    "description": "Stay in the heart of nature at Villa AEOLINA, featuring three beautiful villas surrounded by olive trees in Episkopiana, Corfu."
+  },
+  "alts": {
+    "introLogo": "Aeolina Intro Logo",
+    "interior": "Villa AEOLINA Interior",
+    "sustainability": "Sustainability",
+    "centerLogo": "Aeolina Logo"
+  },
+  "amenities": {
+    "privatePool": "Private Pool",
+    "familyFriendly": "Family Friendly",
+    "mountainViews": "Mountain Views",
+    "sunLoungers": "Sun Loungers",
+    "upTo8Guests": "Up to 8 Guests",
+    "fullKitchen": "Full Kitchen",
+    "washingMachine": "Washing Machine",
+    "smartTv": "Smart TV"
+  },
+  "design": {
+    "title": "Interior Design & Sustainability",
+    "intro": "At AEOLINA, sustainability is not just a design choice — it is our responsibility as villa owners. By choosing solid wood furnishings crafted by local artisans, we reduce waste and ensure durability, while natural textures bring harmony with the olive-grove setting. Thoughtful lighting design enhances both comfort and energy efficiency, curated in collaboration with international artist Spiros Gelekas, whose vision blends beauty with mindful living. In every detail, we seek to balance elegance with respect for nature, so that each stay leaves a lighter footprint.",
+    "hero": {
+      "title": "Thoughtful Design Details",
+      "bullets": [
+        "✅ Solid-wood dining and coffee tables with timeless lines.",
+        "💡 Layered lighting: ambient, task, and accent scenes for every moment.",
+        "🌿 Natural textures—linen, cotton, and woven elements for tactile comfort.",
+        "🎨 Calming palette inspired by olive leaves, stone, and sunlit clay."
+      ]
+    },
+    "banner": "We believe good design is also good stewardship—comfort, beauty, and lighter footprints in perfect balance.",
+    "credit": "Artistic contribution: Spiros Gelekas"
+  },
+  "sustainability": {
+    "title": "🌿 Sustainability in Practice",
+    "bullets": [
+      { "icon": "🌿", "text": "Energy-efficient LED lighting & mindful scene control." },
+      { "icon": "💧", "text": "Water-saving fixtures and optional linen refresh program." },
+      { "icon": "🪵", "text": "Durable, solid-wood furniture to reduce replacements." },
+      { "icon": "♻️", "text": "Recycling guidance and eco-friendly cleaning products." },
+      { "icon": "🏡", "text": "Locally sourced materials supporting nearby artisans." }
+    ]
+  },
+  "love": {
+    "title": "Why Guests Fall in Love with AEOLINA",
+    "dropcap": "A",
+    "paragraphs": [
+      "EOLINA isn’t just a villa — it’s a deeply personal experience set among the tranquil olive groves of southern Corfu. Designed for those who seek both elegance and soul, each stay offers a renewed sense of peace.",
+      "Whether it’s the luxury of your private pool, the scent of sun-warmed stone, or the joy of shared dinners under the stars, AEOLINA invites you to reconnect — with yourself, your loved ones, and nature.",
+      "Spacious interiors welcome families and groups, while our quiet setting and thoughtful design make AEOLINA a dream for couples or remote workers. Every moment feels curated — yet completely your own.",
+      "And just beyond your terrace? Sandy beaches, coastal trails, and timeless Corfiot villages waiting to be explored.",
+      "AEOLINA: where elegant simplicity becomes unforgettable."
+    ]
+  },
+  "villas": {
+    "title": "Our Villas",
+    "elea": {
+      "name": "Villa ELEA",
+      "desc": "Charming, sunlit, and peaceful — ideal for couples or small families."
+    },
+    "oliva": {
+      "name": "Villa OLIVA",
+      "desc": "A cozy and stylish retreat for up to 4 guests."
+    },
+    "natalia": {
+      "name": "Villa NATALIA",
+      "desc": "Our deluxe villa for up to 8 guests, perfect for families or small groups."
+    }
+  },
+  "collection": {
+    "title": "The AEOLINA Collection",
+    "lines": [
+      "The AEOLINA Collection presents three exclusive villas nestled in the quiet village of Episkopiana, thoughtfully designed to celebrate the beauty of Corfu’s olive-covered hills.",
+      "Blending refined aesthetics with modern comforts, each villa offers a private oasis for families, couples, and groups seeking a serene Mediterranean escape.",
+      "",
+      "Villa NATALIA is our premier 200m² residence, ideal for up to 8 guests. It features four spacious bedrooms, a private pool, and lush garden views — perfect for larger families or gatherings.",
+      "Villa OLIVA offers 150m² of cozy sophistication with two elegant bedrooms and an inviting outdoor area, tailored for a small family or friends looking to relax in nature.",
+      "Villa ELEA mirrors OLIVA in design and comfort, with warm natural light and tranquil surroundings that make it especially welcoming for couples or families with children.",
+      "",
+      "Whether you're lounging by the pool, enjoying quality time with loved ones, or exploring the island’s treasures, the AEOLINA Collection ensures a luxurious yet authentic Corfu experience."
+    ]
+  },
+  "nearby": {
+    "title": "What’s Nearby?",
+    "cards": {
+      "beaches": {
+        "title": "Beaches",
+        "text": "Chalikounas and Issos beaches are only a short drive away – wide, sandy, and uncrowded."
+      },
+      "dining": {
+        "title": "Local Dining",
+        "text": "Enjoy fresh seafood and local cuisine at family-run tavernas in nearby Moraitika and Benitses."
+      },
+      "access": {
+        "title": "Easy Access",
+        "text": "Located just 30 minutes from Corfu Town and the airport. Ideal for exploring the island."
+      },
+      "nature": {
+        "title": "Nature & Trails",
+        "text": "Surrounded by olive groves, hills, and quiet paths for walking or cycling right from your door."
+      }
+    }
+  }
+}

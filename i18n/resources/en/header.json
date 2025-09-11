@@ -1,0 +1,16 @@
+{
+  "logoAlt": "Aeolina logo",
+  "aria": {
+    "mainNav": "Main navigation",
+    "goHome": "Go to homepage",
+    "toggleMenu": "Toggle menu"
+  },
+  "items": {
+    "home": "Home",
+    "villas": "Villas",
+    "gallery": "Gallery",
+    "location": "Location",
+    "booking": "Booking",
+    "contact": "Contact"
+  }
+}

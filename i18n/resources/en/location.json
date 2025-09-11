@@ -1,0 +1,39 @@
+{
+  "seo": {
+    "title": "Location – Villa AEOLINA",
+    "description": "Discover where Villa AEOLINA is located in Corfu. Nestled in Episkopiana, close to beaches and local attractions."
+  },
+  "hero": {
+    "alt": "AEOLINA Location",
+    "title": "Our Location",
+    "text": "Picture yourself relaxing on a sunbed under olive trees while cicadas sing around you."
+  },
+  "intro": {
+    "title": "A Natural Haven in Southeast Corfu",
+    "text": "Nestled in a private olive grove in Episkopiana, Villa AEOLINA offers a tranquil retreat away from the busy resorts, while still being just minutes from golden-sand beaches like Chalikounas and Issos. Explore the nearby seaside villages of Moraitika, Messonghi, and Benitses for traditional tavernas, cafes, boat rentals, and lively coastal charm. Corfu Town is only 30 minutes away by car."
+  },
+  "nearby": {
+    "title": "What’s Nearby?",
+    "items": {
+      "beaches": {
+        "title": "Beaches",
+        "text": "Chalikounas and Issos beaches are only a short drive away – wide, sandy, and uncrowded."
+      },
+      "dining": {
+        "title": "Local Dining",
+        "text": "Enjoy fresh seafood and local cuisine at family-run tavernas in nearby Moraitika and Benitses."
+      },
+      "access": {
+        "title": "Easy Access",
+        "text": "Located just 30 minutes from Corfu Town and the airport. Ideal for exploring the island."
+      },
+      "nature": {
+        "title": "Nature & Trails",
+        "text": "Surrounded by olive groves, hills, and quiet paths for walking or cycling right from your door."
+      }
+    }
+  },
+  "map": {
+    "title": "Find Us on the Map"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "seo": {
+    "title": "Our Villas – Villa AEOLINA",
+    "description": "Explore the Villa AEOLINA collection in Corfu: ELEA, OLIVA, and NATALIA – three private villas surrounded by olive trees in Episkopiana."
+  },
+  "intro": {
+    "title": "The AEOLINA Collection",
+    "text": "Welcome to Villa AEOLINA – a collection of three elegant villas nestled in a peaceful olive grove in Episkopiana, Corfu. Each villa offers privacy, comfort, and a natural connection to the Mediterranean landscape."
+  },
+  "natalia": {
+    "name": "Villa NATALIA",
+    "desc": "Our spacious 4-bedroom villa with a private pool, ideal for families or larger groups (up to 8 guests)."
+  },
+  "oliva": {
+    "name": "Villa OLIVA",
+    "desc": "A tranquil 2-bedroom retreat for up to 4 guests, featuring elegant interiors and garden views."
+  },
+  "elea": {
+    "name": "Villa ELEA",
+    "desc": "A sunlit and cozy 2-bedroom villa perfect for couples or small families seeking peaceful relaxation."
+  }
+}

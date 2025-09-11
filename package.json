@@ -3,25 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": "next lint",
-  "export": "next build && next export && next-sitemap"
-},
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next build && next export && next-sitemap"
+  },
   "dependencies": {
     "bootstrap": "^5.3.7",
     "framer-motion": "^12.23.6",
-    "i18next": "^25.3.0",
+    "i18next": "^25.4.2",
     "next": "15.3.4",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.0.0",
-    "react-i18next": "^15.5.3",
+    "react-i18next": "^15.7.3",
     "react-icons": "^5.5.0",
     "react-window": "^1.8.11",
     "sharp": "^0.34.3",
     "yet-another-react-lightbox": "^3.25.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.0.0"
   }
 }
