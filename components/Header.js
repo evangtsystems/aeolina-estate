@@ -1,12 +1,19 @@
-import { useState, useEffect } from "react";
+// components/Header.jsx
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
+const LOCALE_RE = /^\/(en|el)(?=\/|$)/;
+const withLocale = (path, lng) => (lng === "el" ? (path === "/" ? "/el" : `/el${path}`) : path);
+const normalizePath = (p) => {
+  const noLocale = (p || "/").replace(LOCALE_RE, "") || "/";
+  return noLocale.endsWith("/") ? noLocale : `${noLocale}/`;
+};
+
 export default function Header() {
-  // use "resources" namespace for nav items
-  const { t } = useTranslation("header");
+  const { t, i18n } = useTranslation("header");
   const router = useRouter();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,14 +26,19 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const items = [
-    { key: "home", href: "/" },
-    { key: "villas", href: "/villas" },
-    { key: "gallery", href: "/gallery" },
-    { key: "location", href: "/location" },
-    { key: "booking", href: "/booking" },
-    { key: "contact", href: "/contact" }
-  ];
+  const lng = i18n?.language === "el" ? "el" : "en";
+
+  const items = useMemo(
+    () => [
+      { key: "home", href: "/" },
+      { key: "villas", href: "/villas" },
+      { key: "gallery", href: "/gallery" },
+      { key: "location", href: "/location" },
+      { key: "booking", href: "/booking" },
+      { key: "contact", href: "/contact" }
+    ],
+    []
+  );
 
   const linkStyle = {
     textDecoration: "none",
@@ -35,6 +47,8 @@ export default function Header() {
     borderRadius: "6px",
     transition: "all 0.3s ease"
   };
+
+  const current = normalizePath(router.asPath);
 
   return (
     <header
@@ -70,7 +84,7 @@ export default function Header() {
             marginLeft: "-17px"
           }}
         >
-          <Link href="/" aria-label={t("aria.goHome")}>
+          <Link href={withLocale("/", lng)} aria-label={t("aria.goHome")} prefetch={false}>
             <img
               src="/images/common/AEOLINA COLLECTION.jpeg"
               alt={t("logoAlt")}
@@ -99,25 +113,23 @@ export default function Header() {
             }}
           >
             {items.map(({ key, href }) => {
-              const active = router.pathname === href;
+              const target = withLocale(href, lng);
+              const isActive = normalizePath(href) === normalizePath(router.asPath);
               return (
-                <Link key={key} href={href} style={linkStyle}>
+                <Link key={key} href={target} style={linkStyle} prefetch={false}>
                   <span
                     onMouseOver={(e) => {
-                      e.currentTarget.parentElement.style.backgroundColor =
-                        "#ffffff33";
-                      e.currentTarget.parentElement.style.transform =
-                        "scale(1.05)";
+                      e.currentTarget.parentElement.style.backgroundColor = "#ffffff33";
+                      e.currentTarget.parentElement.style.transform = "scale(1.05)";
                     }}
                     onMouseOut={(e) => {
-                      e.currentTarget.parentElement.style.backgroundColor =
-                        "transparent";
+                      e.currentTarget.parentElement.style.backgroundColor = "transparent";
                       e.currentTarget.parentElement.style.transform = "scale(1)";
                     }}
                     style={{
-                      fontWeight: active ? 700 : 500,
-                      textDecoration: active ? "underline" : "none",
-                      textUnderlineOffset: active ? "4px" : undefined
+                      fontWeight: isActive ? 700 : 500,
+                      textDecoration: isActive ? "underline" : "none",
+                      textUnderlineOffset: isActive ? "4px" : undefined
                     }}
                   >
                     {t(`items.${key}`)}
@@ -170,7 +182,7 @@ export default function Header() {
           {items.map(({ key, href }) => (
             <Link
               key={key}
-              href={href}
+              href={withLocale(href, lng)}
               onClick={() => setMenuOpen(false)}
               style={{
                 textDecoration: "none",
@@ -180,6 +192,7 @@ export default function Header() {
                 width: "100%",
                 textAlign: "center"
               }}
+              prefetch={false}
             >
               {t(`items.${key}`)}
             </Link>

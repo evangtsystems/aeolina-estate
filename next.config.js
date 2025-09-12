@@ -1,9 +1,6 @@
 // next.config.js
-const nextConfig = {
+module.exports = {
   output: 'export',
-  images: {
-    unoptimized: true, // <== THIS LINE FIXES THE ERROR
-  },
+  trailingSlash: true,          // recommended for static hosts
+  images: { unoptimized: true },
 };
-
-module.exports = nextConfig;
