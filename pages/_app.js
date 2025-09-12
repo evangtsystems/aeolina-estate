@@ -1,33 +1,39 @@
 // pages/_app.js
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
-import "../i18n/i18n";          // initialize i18n
 import "@/styles/globals.css";
+import "../i18n/i18n";
 import i18n from "../i18n/i18n";
 
 const LOCALE_RE = /^\/(en|el)(?=\/|$)/;
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const normalizedRef = useRef(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || normalizedRef.current) return;
 
-    const { asPath, pathname } = router;
-    const match = pathname.match(LOCALE_RE);
-    if (!match) return; // already a non-locale path
+    const { pathname, search, hash } = window.location;       // <- use real URL
+    const m = pathname.match(LOCALE_RE);
+    if (!m) { 
+      normalizedRef.current = true;
+      return; 
+    }
 
-    const lng = match[1];
-
-    // Update language
+    const lng = m[1];
     try { i18n.changeLanguage(lng); } catch {}
-    document.documentElement.setAttribute("lang", lng);
+    try { document.documentElement.setAttribute("lang", lng); } catch {}
 
-    // Strip the locale prefix so Next can match a page (e.g. /el/location → /location)
-    const stripped = asPath.replace(LOCALE_RE, "") || "/";
+    // Internal route (what Next actually has): strip /en|/el
+    const internal = (pathname.replace(LOCALE_RE, "") || "/") + search + hash;
+    // Pretty URL to *show* in the bar (keep the original)
+    const pretty = pathname + search + hash;
 
-    // Replace in history without reload
-    router.replace(stripped, undefined, { shallow: true });
+    normalizedRef.current = true;
+
+    // Load the real page (/location) but KEEP /el/location in the address bar
+    router.replace(internal, pretty, { shallow: true });
   }, [router]);
 
   return <Component {...pageProps} />;
