@@ -29,10 +29,43 @@ export default function LanguageSwitcher() {
     requestAnimationFrame(() => window.scrollTo(x, y));
   }
 
+  const cur = i18n?.language || "en";
+
+  const container = {
+    display: "inline-flex",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.2)", // cloud background
+    borderRadius: "20px",
+    padding: "4px",
+    gap: "4px"
+  };
+
+  const base = {
+    padding: "6px 12px",
+    border: "none",
+    borderRadius: "16px",
+    background: "transparent",
+    color: "#fff",
+    cursor: "pointer",
+    fontSize: "0.95rem",
+    transition: "all 0.3s ease"
+  };
+
+  const active = {
+    ...base,
+    background: "#fff",
+    color: "#333",
+    fontWeight: 700
+  };
+
   return (
-    <div aria-label="Language switcher" style={{ display:"flex", alignItems:"center" }}>
-      <button onClick={() => go("en")}>EN</button>
-      <button onClick={() => go("el")}>EL</button>
+    <div aria-label="Language switcher" style={container}>
+      <button onClick={() => go("en")} style={cur === "en" ? active : base}>
+        EN
+      </button>
+      <button onClick={() => go("el")} style={cur === "el" ? active : base}>
+        EL
+      </button>
     </div>
   );
 }
