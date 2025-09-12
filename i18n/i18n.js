@@ -54,8 +54,10 @@ function detectInitialLang() {
     const stored = localStorage.getItem("lang");
     if (stored) return stored;
   }
-  return process.env.NEXT_PUBLIC_LOCALE || "en";
+  // 🔑 On server: force EN to avoid mismatches
+  return "en";
 }
+
 
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
