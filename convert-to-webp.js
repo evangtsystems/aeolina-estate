@@ -3,19 +3,31 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const inputDir = path.join(__dirname, 'public', 'images', 'slider');
+const inputRoot = path.join(__dirname, 'public', 'images');
 
-fs.readdirSync(inputDir).forEach((file) => {
-  const ext = path.extname(file).toLowerCase();
-  const name = path.basename(file, ext);
-  const inputPath = path.join(inputDir, file);
-  const outputPath = path.join(inputDir, `${name}.webp`);
+function convertDir(dir) {
+  fs.readdirSync(dir).forEach((file) => {
+    const inputPath = path.join(dir, file);
+    const stat = fs.statSync(inputPath);
 
-  if (['.jpg', '.jpeg', '.png'].includes(ext)) {
-    sharp(inputPath)
-      .webp({ quality: 85 })
-      .toFile(outputPath)
-      .then(() => console.log(`✅ Converted: ${file} → ${name}.webp`))
-      .catch((err) => console.error(`❌ Failed to convert ${file}:`, err));
-  }
-});
+    if (stat.isDirectory()) {
+      // recurse into subfolder
+      convertDir(inputPath);
+    } else {
+      const ext = path.extname(file).toLowerCase();
+      const name = path.basename(file, ext);
+      const outputPath = path.join(dir, `${name}.webp`);
+
+      if (['.jpg', '.jpeg', '.png'].includes(ext)) {
+        sharp(inputPath)
+          .webp({ quality: 85 })
+          .toFile(outputPath)
+          .then(() => console.log(`✅ Converted: ${inputPath} → ${outputPath}`))
+          .catch((err) => console.error(`❌ Failed to convert ${inputPath}:`, err));
+      }
+    }
+  });
+}
+
+// start from images root
+convertDir(inputRoot);

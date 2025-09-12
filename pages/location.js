@@ -66,7 +66,7 @@ export default function Location() {
             }}
           >
             <Image
-              src="/images/common/aeolina location image.png"
+              src="/images/common/aeolina location image.webp"
               alt={t('hero.alt')}
               width={1024}
               height={1024}
