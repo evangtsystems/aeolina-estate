@@ -1,4 +1,4 @@
-// pages/_app.js
+/// pages/_app.js
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import "@/styles/globals.css";
@@ -11,19 +11,24 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const normalizedRef = useRef(false);
 
+  // 🔹 Language normalization
   useEffect(() => {
     if (typeof window === "undefined" || normalizedRef.current) return;
 
-    const { pathname, search, hash } = window.location;       // <- use real URL
+    const { pathname, search, hash } = window.location; // <- use real URL
     const m = pathname.match(LOCALE_RE);
-    if (!m) { 
+    if (!m) {
       normalizedRef.current = true;
-      return; 
+      return;
     }
 
     const lng = m[1];
-    try { i18n.changeLanguage(lng); } catch {}
-    try { document.documentElement.setAttribute("lang", lng); } catch {}
+    try {
+      i18n.changeLanguage(lng);
+    } catch {}
+    try {
+      document.documentElement.setAttribute("lang", lng);
+    } catch {}
 
     // Internal route (what Next actually has): strip /en|/el
     const internal = (pathname.replace(LOCALE_RE, "") || "/") + search + hash;
@@ -36,7 +41,21 @@ export default function App({ Component, pageProps }) {
     router.replace(internal, pretty, { shallow: true });
   }, [router]);
 
+  // 🔹 Google Analytics route tracking
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      if (window.gtag) {
+        window.gtag("config", "G-V2E1SF4C39", {
+          page_path: url,
+        });
+      }
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return <Component {...pageProps} />;
 }
-
-
