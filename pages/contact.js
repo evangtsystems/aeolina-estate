@@ -71,7 +71,8 @@ export default function Contact() {
               }}
             >
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
+             <input type="hidden" name="_next" value="https://aeolinavillas.com/thank-you/" />
+
 
               <input
                 type="text"
