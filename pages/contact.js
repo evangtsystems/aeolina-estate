@@ -57,7 +57,7 @@ export default function Contact() {
             </p>
 
             <form
-              action="https://formsubmit.co/evangelos.lampos@gtsystems.gr"
+              action="https://formsubmit.co/info@aeolinavillas.com"
               method="POST"
               style={{
                 display: 'flex',
