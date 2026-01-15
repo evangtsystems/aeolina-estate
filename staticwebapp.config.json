@@ -2,11 +2,28 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
-      "*.js","*.css","*.png","*.jpg","*.jpeg","*.svg","*.ico",
-      "*.webp","*.woff","*.woff2","*.txt","assets/*","api/*"
+      "/thank-you/*",
+      "/contact/*",
+      "/_next/*",
+      "/favicon.ico",
+      "/robots.txt",
+      "/sitemap.xml",
+      "/assets/*",
+      "/api/*",
+      "*.js",
+      "*.css",
+      "*.png",
+      "*.jpg",
+      "*.jpeg",
+      "*.svg",
+      "*.ico",
+      "*.webp",
+      "*.woff",
+      "*.woff2",
+      "*.txt"
     ]
   },
   "responseOverrides": {
-    "404": { "rewrite": "/index.html" }
+    "404": { "rewrite": "/404.html" }
   }
 }
