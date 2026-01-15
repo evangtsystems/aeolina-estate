@@ -1,181 +1,170 @@
-import { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+// pages/contact.js
+import Head from "next/head";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { motion } from "framer-motion";
 
-export default function BookingPage() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    villa: 'ELEA',
-    arrival: '',
-    departure: '',
-    message: '',
-  });
-  const [status, setStatus] = useState('');
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('Sending...');
-
-    try {
-      const token = await grecaptcha.execute('6LcKpJ4rAAAAAIJIaCmwV6zA0lBFIzCcb597hJ6M', { action: 'submit' });
-
-      const res = await fetch('/api/sendInquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, token }),
-      });
-
-      const data = await res.json();
-      if (res.ok) {
-        setStatus('✅ Inquiry sent! We’ll contact you shortly.');
-        setForm({
-          name: '',
-          email: '',
-          villa: 'ELEA',
-          arrival: '',
-          departure: '',
-          message: '',
-        });
-      } else {
-        setStatus(data.error || '❌ Something went wrong.');
-      }
-    } catch (err) {
-      setStatus('❌ Error sending form.');
-    }
-  };
-
+export default function Contact() {
   return (
     <>
-      <Header />
+      <Head>
+        <title>Contact – Villa AEOLINA</title>
+        <meta
+          name="description"
+          content="Contact Villa AEOLINA to book your tranquil Corfu stay or ask any questions."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
 
       <div
         style={{
-          minHeight: '100vh',
-          background: 'linear-gradient(to bottom, #f4f4f9, #e0e0e0)',
-          padding: '2rem',
-          fontFamily: 'Georgia, serif',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          background: "linear-gradient(to bottom, #fdfdfd, #eef2ee)",
+          fontFamily: "'Open Sans', sans-serif",
         }}
       >
-        <div
-          style={{
-            backgroundColor: '#fff',
-            padding: '2rem',
-            borderRadius: '16px',
-            maxWidth: '600px',
-            width: '100%',
-            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
-          }}
-        >
-          <h1 style={{ textAlign: 'center', fontSize: '28px', marginBottom: '1rem' }}>
-            Book Your Stay at <span style={{ color: '#1e88e5' }}>Aeolina Villas</span>
-          </h1>
-          <p style={{ textAlign: 'center', color: '#555', marginBottom: '2rem' }}>
-            Fill in your details and we’ll get back to you with availability.
-          </p>
+        <div>
+          <Header />
 
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-            <input
-              style={inputStyle}
-              name="name"
-              placeholder="Full Name"
-              required
-              value={form.name}
-              onChange={handleChange}
-            />
-
-            <input
-              style={inputStyle}
-              name="email"
-              type="email"
-              placeholder="Email Address"
-              required
-              value={form.email}
-              onChange={handleChange}
-            />
-
-           <select style={inputStyle} name="villa" value={form.villa} onChange={handleChange}>
-  <option value="ELEA">Villa ELEA — 2 Bedrooms (Deluxe)</option>
-  <option value="OLIVA">Villa OLIVA — 2 Bedrooms</option>
-  <option value="NATALIA">Villa NATALIA — 4 Bedrooms</option>
-</select>
-
-
-            <input
-              style={inputStyle}
-              type="date"
-              name="arrival"
-              required
-              value={form.arrival}
-              onChange={handleChange}
-            />
-
-            <input
-              style={inputStyle}
-              type="date"
-              name="departure"
-              required
-              value={form.departure}
-              onChange={handleChange}
-            />
-
-            <textarea
-              style={{ ...inputStyle, resize: 'vertical', minHeight: '100px' }}
-              name="message"
-              placeholder="Additional notes or questions"
-              value={form.message}
-              onChange={handleChange}
-            />
-
-            <button
-              type="submit"
+          <main
+            style={{
+              padding: "120px 20px 60px",
+              maxWidth: "700px",
+              margin: "0 auto",
+              textAlign: "center",
+            }}
+          >
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
               style={{
-                background: 'linear-gradient(to right, #1e88e5, #42a5f5)',
-                color: '#fff',
-                padding: '14px',
-                border: 'none',
-                borderRadius: '8px',
-                fontSize: '16px',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                transition: 'background 0.3s',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(to right, #1565c0, #1e88e5)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.background = 'linear-gradient(to right, #1e88e5, #42a5f5)';
+                fontSize: "2.5rem",
+                marginBottom: "10px",
+                color: "#2F4F4F",
+                fontFamily: "'Playfair Display', serif",
               }}
             >
-              Send Inquiry
-            </button>
-          </form>
+              Contact Us
+            </motion.h1>
 
-          <p style={{ marginTop: '1rem', textAlign: 'center', color: '#333' }}>{status}</p>
+            <p style={{ marginBottom: "50px", fontSize: "1.1rem", color: "#555" }}>
+              Have a question or want to book directly? Send us a message and we’ll get back to you
+              shortly.
+            </p>
 
-          {/* Invisible reCAPTCHA v3 */}
-          <script src="https://www.google.com/recaptcha/api.js?render=6LcKpJ4rAAAAAIJIaCmwV6zA0lBFIzCcb597hJ6M"></script>
+            <form
+              action="https://formsubmit.co/info@aeolinavillas.com"
+              method="POST"
+              referrerPolicy="origin"   // ✅ critical for live hosting issues
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+                padding: "20px",
+                backgroundColor: "#ffffffcc",
+                borderRadius: "12px",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+                marginTop: "-20px",
+              }}
+            >
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_url" value="https://aeolinavillas.com/contact/" /> {/* ✅ */}
+              <input type="hidden" name="_next" value="https://aeolinavillas.com/thank-you/" />
+              <input type="hidden" name="_subject" value="New Contact Message – Villa AEOLINA" />
+              <input type="text" name="_honey" style={{ display: "none" }} tabIndex="-1" autoComplete="off" />
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                style={{
+                  padding: "14px",
+                  fontSize: "1rem",
+                  borderRadius: "8px",
+                  border: "1px solid #ccc",
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
+                onFocus={(e) => (e.target.style.border = "1px solid #556B2F")}
+                onBlur={(e) => (e.target.style.border = "1px solid #ccc")}
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                style={{
+                  padding: "14px",
+                  fontSize: "1rem",
+                  borderRadius: "8px",
+                  border: "1px solid #ccc",
+                  outline: "none",
+                  transition: "border 0.3s ease",
+                }}
+                onFocus={(e) => (e.target.style.border = "1px solid #556B2F")}
+                onBlur={(e) => (e.target.style.border = "1px solid #ccc")}
+              />
+
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows="6"
+                required
+                style={{
+                  padding: "14px",
+                  fontSize: "1rem",
+                  borderRadius: "8px",
+                  border: "1px solid #ccc",
+                  outline: "none",
+                  resize: "vertical",
+                  transition: "border 0.3s ease",
+                }}
+                onFocus={(e) => (e.target.style.border = "1px solid #556B2F")}
+                onBlur={(e) => (e.target.style.border = "1px solid #ccc")}
+              />
+
+              <button
+                type="submit"
+                style={{
+                  padding: "14px",
+                  backgroundColor: "#556B2F",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "8px",
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  cursor: "pointer",
+                  transition: "background 0.3s ease, box-shadow 0.3s ease",
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = "#6B8E23";
+                  e.target.style.boxShadow = "0 0 10px rgba(107, 142, 35, 0.4)";
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = "#556B2F";
+                  e.target.style.boxShadow = "none";
+                }}
+              >
+                Send Message
+              </button>
+            </form>
+          </main>
         </div>
-      </div>
 
-      <Footer />
+        <Footer />
+      </div>
     </>
   );
 }
-
-const inputStyle = {
-  padding: '12px',
-  fontSize: '16px',
-  border: '1px solid #ccc',
-  borderRadius: '8px',
-  width: '100%',
-  boxSizing: 'border-box',
-  backgroundColor: '#fefefe',
-};
