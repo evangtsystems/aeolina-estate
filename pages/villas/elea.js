@@ -13,12 +13,32 @@ export default function EleaPage() {
   return (
     <>
       <Head>
-        <title>{t("seo.title")}</title>
-        <meta name="description" content={t("seo.description")} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="content-language" content={i18n.language} />
-        <meta property="og:locale" content={i18n.language} />
-      </Head>
+  <title>{t("seo.title")}</title>
+  <meta name="description" content={t("seo.description")} />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {/* ✅ Canonical (important with trailingSlash: true) */}
+  <link rel="canonical" href="https://aeolinavillas.com/villas/elea/" />
+
+  {/* Optional but fine */}
+  <meta httpEquiv="content-language" content={i18n.language} />
+  <meta property="og:locale" content={i18n.language} />
+
+  {/* ✅ Open Graph */}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aeolina Villas" />
+  <meta property="og:title" content={t("seo.title")} />
+  <meta property="og:description" content={t("seo.description")} />
+  <meta property="og:url" content="https://aeolinavillas.com/villas/elea/" />
+  <meta property="og:image" content="https://aeolinavillas.com/og/elea.jpg" />
+
+  {/* ✅ Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t("seo.title")} />
+  <meta name="twitter:description" content={t("seo.description")} />
+  <meta name="twitter:image" content="https://aeolinavillas.com/og/elea.jpg" />
+</Head>
+
 
       <Hreflang path="/villas/elea/" />
       <Header />
