@@ -12,18 +12,65 @@ export default function NataliaPage() {
   return (
     <>
       <Head>
-        <title>{t("seo.title", { defaultValue: "Villa NATALIA – Deluxe Four-Bedroom Villa | AEOLINA Collection" })}</title>
-        <meta
-          name="description"
-          content={t("seo.description", {
-            defaultValue:
-              "Villa NATALIA is a 200 m² deluxe villa with 4 bedrooms, 4 bathrooms, private pool, full kitchen, balcony/terrace, and garden & mountain views. Flat-screen TV with streaming, free Wi-Fi, A/C, soundproofing. No smoking."
-          })}
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="content-language" content={i18n.language} />
-        <meta property="og:locale" content={i18n.language} />
-      </Head>
+  <title>
+    {t("seo.title", {
+      defaultValue: "Villa NATALIA – Deluxe Four-Bedroom Villa | AEOLINA Collection",
+    })}
+  </title>
+
+  <meta
+    name="description"
+    content={t("seo.description", {
+      defaultValue:
+        "Villa NATALIA is a 200 m² deluxe villa with 4 bedrooms, 4 bathrooms, private pool, full kitchen, balcony/terrace, and garden & mountain views. Flat-screen TV with streaming, free Wi-Fi, A/C, soundproofing. No smoking.",
+    })}
+  />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {/* ✅ Canonical */}
+  <link rel="canonical" href="https://aeolinavillas.com/villas/natalia/" />
+
+  <meta httpEquiv="content-language" content={i18n.language} />
+  <meta property="og:locale" content={i18n.language} />
+
+  {/* ✅ Open Graph */}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aeolina Villas" />
+  <meta
+    property="og:title"
+    content={t("seo.title", {
+      defaultValue: "Villa NATALIA – Deluxe Four-Bedroom Villa | AEOLINA Collection",
+    })}
+  />
+  <meta
+    property="og:description"
+    content={t("seo.description", {
+      defaultValue:
+        "Villa NATALIA is a 200 m² deluxe villa with 4 bedrooms, 4 bathrooms, private pool, full kitchen, balcony/terrace, and garden & mountain views. Flat-screen TV with streaming, free Wi-Fi, A/C, soundproofing. No smoking.",
+    })}
+  />
+  <meta property="og:url" content="https://aeolinavillas.com/villas/natalia/" />
+  <meta property="og:image" content="https://aeolinavillas.com/og/natalia.jpg" />
+
+  {/* ✅ Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content={t("seo.title", {
+      defaultValue: "Villa NATALIA – Deluxe Four-Bedroom Villa | AEOLINA Collection",
+    })}
+  />
+  <meta
+    name="twitter:description"
+    content={t("seo.description", {
+      defaultValue:
+        "Villa NATALIA is a 200 m² deluxe villa with 4 bedrooms, 4 bathrooms, private pool, full kitchen, balcony/terrace, and garden & mountain views. Flat-screen TV with streaming, free Wi-Fi, A/C, soundproofing. No smoking.",
+    })}
+  />
+  <meta name="twitter:image" content="https://aeolinavillas.com/og/natalia.jpg" />
+</Head>
+
 
       <Hreflang path="/villas/natalia/" />
       <Header />

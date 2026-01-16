@@ -11,13 +11,32 @@ export default function OlivaPage() {
 
   return (
     <>
-      <Head>
-        <title>{t("seo.title")}</title>
-        <meta name="description" content={t("seo.description")} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="content-language" content={i18n.language} />
-        <meta property="og:locale" content={i18n.language} />
-      </Head>
+     <Head>
+  <title>{t("seo.title")}</title>
+  <meta name="description" content={t("seo.description")} />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {/* ✅ Canonical */}
+  <link rel="canonical" href="https://aeolinavillas.com/villas/oliva/" />
+
+  <meta httpEquiv="content-language" content={i18n.language} />
+  <meta property="og:locale" content={i18n.language} />
+
+  {/* ✅ Open Graph */}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aeolina Villas" />
+  <meta property="og:title" content={t("seo.title")} />
+  <meta property="og:description" content={t("seo.description")} />
+  <meta property="og:url" content="https://aeolinavillas.com/villas/oliva/" />
+  <meta property="og:image" content="https://aeolinavillas.com/og/oliva.jpg" />
+
+  {/* ✅ Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t("seo.title")} />
+  <meta name="twitter:description" content={t("seo.description")} />
+  <meta name="twitter:image" content="https://aeolinavillas.com/og/oliva.webp" />
+</Head>
+
 
       <Hreflang path="/villas/oliva/" />
       <Header />
