@@ -27,7 +27,7 @@ export default function Footer() {
           </p>
           <p style={{ marginBottom: '8px' }}>
             Follow us:
-            <a href="" target="_blank" rel="noopener noreferrer" style={{ color: 'white', marginLeft: '10px' }}>
+            <a href="https://www.facebook.com/profile.php?id=61587270204117" target="_blank" rel="noopener noreferrer" style={{ color: 'white', marginLeft: '10px' }}>
               <FaFacebook size={20} />
             </a>
             <a href="" target="_blank" rel="noopener noreferrer" style={{ color: 'white', marginLeft: '10px' }}>
