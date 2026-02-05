@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
+# Host
+Host: https://aeolinavillas.com
+
+# Sitemaps
 Sitemap: https://aeolinavillas.com/sitemap.xml
