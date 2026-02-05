@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && next-sitemap"
-,
+    "build": "next build && next-sitemap",
+
     "start": "next start",
-    "lint": "next lint",
-    "export": "next build && next export && next-sitemap"
+    "lint": "next lint"
+    
   },
   "dependencies": {
     "bootstrap": "^5.3.7",
