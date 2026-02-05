@@ -5,6 +5,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import VillaCard from '../components/VillaCard';
 import HeroSlider from '../components/HeroSlider';
+import WebHotelierBookingCard from "../components/WebHotelierBookingCard";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';

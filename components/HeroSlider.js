@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import WebHotelierBookingCard from './WebHotelierBookingCard';
 
 const sliderImages = [
   '/images/slider/1.webp',
@@ -102,6 +103,24 @@ export default function HeroSlider() {
           Discover tranquility and elegance in Corfu's olive groves — three private villas, one unforgettable stay.
         </p>
       </div>
+
+     <div
+  style={{
+    position: "absolute",
+    left: "50%",
+    transform: "translateX(-50%)",
+    bottom: isMobile ? 12 : 22,
+    width: "100%",
+    zIndex: 5,
+    pointerEvents: "auto",
+    padding: "0 10px",
+  }}
+>
+  <WebHotelierBookingCard />
+</div>
+
+
+
 
       {/* Navigation */}
       <button
