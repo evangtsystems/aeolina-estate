@@ -190,14 +190,14 @@ export default function Location() {
             }}
           >
             <iframe
-              src="https://maps.google.com/maps?q=39.486639,19.912000&z=15&output=embed"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+  src="https://www.google.com/maps?q=39.486639,19.912000&hl=en&z=16&output=embed"
+  width="100%"
+  height="450"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+/>
+
           </div>
         </section>
       </main>
