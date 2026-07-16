@@ -105,7 +105,7 @@ export default function EleaPage() {
                 "🛁 2 bathrooms with walk-in showers",
                 "🌳 Garden, pool & mountain views",
                 "🏊 Private swimming pool & furnished terrace",
-                "🍳 Fully equipped kitchen (oven, dishwasher, coffee machine)",
+                "🍳 Fully equipped kitchen (oven, coffee machine)",
                 "📺 Flat-screen TV with streaming",
                 "🧺 Washing machine, drying rack, high chair",
                 "🪟 Soundproofed, private entrance, mosquito nets",
