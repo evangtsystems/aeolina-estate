@@ -216,7 +216,7 @@ export default function EleaPage() {
             >
               {twList([
                 "Stovetop, Oven, Toaster",
-                "Dishwasher, Microwave, Refrigerator",
+                " Microwave, Refrigerator",
                 "Coffee machine, Electric kettle",
                 "Kitchenware, Cleaning products, Dining table",
                 "Washing machine & drying rack",
