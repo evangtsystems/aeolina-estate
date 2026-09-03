@@ -17,7 +17,15 @@ import { useTranslation } from 'react-i18next';
 import { tw, twList } from '../i18n/word-by-word';
 
 export default function Home() {
-  const { t } = useTranslation('home');
+  const { t, i18n } = useTranslation('home');
+
+  const handleGeminiClick = () => {
+  window.open(
+    'https://gemini.google.com/',
+    '_blank',
+    'noopener,noreferrer'
+  );
+};
 
   // --- SAFE HELPERS ---
   // Get array (objects or strings)
@@ -776,8 +784,69 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <CookieConsent />
-      <Footer />
+
+{/* Ask Gemini about Aeolina Villas */}
+<div
+  style={{
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '28px 0',
+    padding: '0 16px',
+  }}
+>
+  <button
+    type="button"
+    onClick={handleGeminiClick}
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '12px',
+      background: '#ffffff',
+      color: '#202124',
+      border: '1px solid #dadce0',
+      borderRadius: '999px',
+      padding: '11px 22px',
+      fontSize: '14px',
+      fontWeight: 600,
+      cursor: 'pointer',
+      boxShadow: '0 1px 2px rgba(60,64,67,0.18)',
+    }}
+  >
+    <img
+      src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+      alt=""
+      width="20"
+      height="20"
+    />
+
+    <span>
+      {i18n.language === 'el'
+        ? 'Ρώτησε το Gemini για τις Aeolina Villas'
+        : 'Ask Gemini about Aeolina Villas'}
+    </span>
+  </button>
+
+  <p
+    style={{
+      marginTop: '8px',
+      marginBottom: 0,
+      fontSize: '12px',
+      color: '#6b7280',
+      textAlign: 'center',
+    }}
+  >
+    {i18n.language === 'el'
+      ? 'Ανακάλυψε πληροφορίες για τις Aeolina Villas στην Κέρκυρα μέσω του Gemini.'
+      : 'Discover information about Aeolina Villas in Corfu with Gemini.'}
+  </p>
+</div>
+
+<CookieConsent />
+<Footer />
     </>
   );
 }
